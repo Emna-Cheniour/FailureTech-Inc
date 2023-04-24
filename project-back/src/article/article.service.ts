@@ -86,7 +86,7 @@ export class ArticleService {
   async deleteArticle(articleId: string) {
     const result = await this.articleModel.deleteOne({_id: articleId}).exec();
     if (result.deletedCount=== 0) {
-      throw new NotFoundException('Could not find File.');
+      throw new NotFoundException('Could not find Artcile.');
     }
   }
   async addComment(articleId: string, comment: string): Promise<Article> {
