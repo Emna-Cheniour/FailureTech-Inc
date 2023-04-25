@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../article.service';
+import { Article } from '../article.model';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -9,11 +12,27 @@ export class ArticlesComponent implements OnInit {
 
 
  
-    test:string='<h1> this is h1 </h1> <h2> this is h2 </h2><br>hello'
-    constructor() { }
-
+    comment:string="";
+    constructor(private articleService:ArticleService) { }
+    articles:Article[]=[];
     ngOnInit() {
-       
+       this.articleService.getAllArticles().subscribe(
+        (response:Article[])=>{
+            this.articles=response
+        }
+       )
     }
+    addComment(articleId:string,form:NgForm){
+        this.articleService.addComment(articleId,form.value.comment).subscribe(
+            (response)=>{
+                this.articleService.getAllArticles().subscribe(
+                    (response:Article[])=>{
+                        this.articles=response
+                    }
+                   )
+            }
+        )
+    }
+
     
 }

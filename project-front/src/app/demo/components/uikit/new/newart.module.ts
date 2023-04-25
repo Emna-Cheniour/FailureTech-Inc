@@ -14,7 +14,7 @@ import { NewArticleComponent } from './newart.component';
 		CommonModule,
 		FormsModule,
 		NewPostRoutingModule,
-		FileUploadModule,
+		FileUploadModule
 	
 	],
 	declarations: [NewArticleComponent],

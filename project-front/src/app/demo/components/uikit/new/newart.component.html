@@ -11,22 +11,28 @@
                         <div class="well well-sm well-social-post">
                     <form>
                        
-                        <textarea style="font-size: large; height: 250px;" class="form-control" placeholder="What's in your mind?"></textarea>
+                        <textarea name="content" [(ngModel)]="content" style="font-size: large; height: 250px;" class="form-control" placeholder="What's in your mind?"></textarea>
                        
                     </form>
                         </div>
                     </div>
                 </div>
             </div> 
+            <div style="
+                text-align:center;
+                padding:3%;
+                border:thin solid rgb(118, 118, 118);">
+                <label for="inputTag">
+                  Select Image <br/>
+                  <i class="pi pi-camera"style="font-size: 2rem; margin-top: 10px;margin-bottom: 10px;"></i>
+                  <input id="inputTag" type="file" style=" display: none;" (change)="readURL($event);"/>
+                  <br/>
+                  <img *ngIf='imageSrc!=""'id="blah" [src]="imageSrc " alt="your image" style="width:50%;"/>
+                </label>
+              </div>
+              
            
-            <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
-                           accept="image/*" [maxFileSize]="1000000">
-                <ng-template pTemplate="content">
-                    <ul *ngIf="uploadedFiles.length">
-                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                    </ul>
-                </ng-template>
-            </p-fileUpload>
+            <button pButton pRipple (click)="saveArticle()" label="Submit Article" style="width:250px ; margin-left: 40%;margin-top: 20px;"></button>
 
             
         </div>

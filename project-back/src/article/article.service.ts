@@ -11,7 +11,7 @@ export class ArticleService {
   constructor(
     @InjectModel('Article') private readonly articleModel: Model<Article>,
   ) { }
-   dir:string="/home/haythemkaouech/Desktop/Work/DevSecOps/images/"
+   dir:string="/home/haythemkaouech/Desktop/Work/DevSecOps/project-front/src/assets/demo/images/"
 
 
   async getArticles() {
@@ -65,9 +65,13 @@ export class ArticleService {
    var filePath=null;
     if(file!=null){
        filePath = await this.saveFileToLocalDirectory(file, this.dir);
+       const generatedId = await this.insertArticle(content,"assets/demo/images/"+file.originalname);
+      }
+      else{
+        const generatedId = await this.insertArticle(content,"assets/demo/images/"+file.originalname);
       }
 
-    const generatedId = await this.insertArticle(content, filePath);
+   
     return `File saved at ${filePath}`;
   }
   async updateArticle(
