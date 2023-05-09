@@ -8,6 +8,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
 import { DividerModule } from "primeng/divider";
 import { ArticlesComponent } from './articles.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
 	imports: [
 		CommonModule,
@@ -16,7 +17,7 @@ import { ArticlesComponent } from './articles.component';
 		ImageModule,
 		GalleriaModule,
 		CarouselModule,
-		DividerModule
+		DividerModule,FormsModule
 	],
 	declarations: [ArticlesComponent]
 })
