@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 
-
+  
 @NgModule({
     declarations: [
         AppComponent,
@@ -16,7 +16,6 @@ import { AppLayoutModule } from './layout/app.layout.module';
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-       
     ],
     bootstrap: [AppComponent]
 })
